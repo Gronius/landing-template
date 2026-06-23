@@ -1,0 +1,66 @@
+.contact {
+  position: relative;
+  padding: 6rem 0;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__orb {
+    position: absolute;
+    border-radius: 50%;
+    &--1 { bottom: 0; left: 33%; width: 500px; height: 500px; background: rgba($clr-primary, 0.1); filter: blur(120px); }
+    &--2 { bottom: 0; right: 33%; width: 400px; height: 400px; background: rgba($clr-accent, 0.1); filter: blur(100px); }
+  }
+
+  &__container { @include container; position: relative; z-index: 10; }
+
+  &__grid {
+    @include grid(1, 3rem);
+    @include media(lg) { grid-template-columns: 3fr 2fr; }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__form-row {
+    @include grid(1, 1.25rem);
+    @include media(sm) { grid-template-columns: 1fr 1fr; }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__info-item {
+    @include flex(flex-start, flex-start, 1rem);
+  }
+
+  &__info-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: $radius-md;
+    background: $gradient-primary;
+    @include flex;
+    flex-shrink: 0;
+    color: $clr-primary-fg;
+  }
+
+  &__info-label {
+    display: block;
+    font-size: 0.875rem;
+    color: $clr-muted;
+  }
+
+  &__info-value {
+    display: block;
+    font-weight: $fw-medium;
+  }
+}

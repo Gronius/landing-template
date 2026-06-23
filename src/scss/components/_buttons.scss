@@ -1,0 +1,36 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: $fw-medium;
+  border-radius: $radius-full;
+  transition: all $transition-base;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+
+  &--sm  { padding: 0.5rem 1.5rem; font-size: 0.875rem; }
+  &--md  { padding: 0.75rem 2rem; font-size: 0.9375rem; }
+  &--lg  { padding: 0.875rem 2rem; font-size: 1rem; }
+
+  &--primary {
+    background: $gradient-primary;
+    color: $clr-primary-fg;
+    &:hover { opacity: 0.9; }
+  }
+
+  &--outline {
+    background: transparent;
+    border: 1px solid $clr-border;
+    color: $clr-foreground;
+    &:hover {
+      border-color: rgba($clr-primary, 0.5);
+      background: rgba($clr-primary, 0.05);
+    }
+  }
+
+  &--glow {
+    box-shadow: $shadow-glow;
+  }
+}

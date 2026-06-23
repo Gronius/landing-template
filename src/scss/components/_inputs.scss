@@ -1,0 +1,20 @@
+.input {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  background: rgba($clr-bg-card, 0.5);
+  border: 1px solid $clr-border;
+  border-radius: $radius-xl;
+  color: $clr-foreground;
+  font-size: 0.9375rem;
+  transition: border-color $transition-base;
+  outline: none;
+
+  &::placeholder { color: $clr-muted; }
+  &:focus { border-color: rgba($clr-primary, 0.5); }
+
+  &--textarea {
+    resize: none;
+    min-height: 140px;
+    border-radius: $radius-lg;
+  }
+}

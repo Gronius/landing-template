@@ -1,0 +1,68 @@
+.services {
+  padding: 6rem 0;
+
+  &__container { @include container; }
+
+  &__grid {
+    @include grid(1, 1.5rem);
+    @include media(md) { grid-template-columns: repeat(2, 1fr); }
+    @include media(lg) { grid-template-columns: repeat(3, 1fr); }
+  }
+}
+
+.service-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: $radius-xl;
+  border: 1px solid $clr-border;
+  background: rgba($clr-bg-card, 0.5);
+  backdrop-filter: blur(8px);
+  transition: all $transition-slow;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    border-color: rgba($clr-primary, 0.3);
+    box-shadow: $shadow-glow;
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: $radius-md;
+    @include flex;
+    margin-bottom: 1.25rem;
+    transition: transform $transition-base;
+    color: $clr-primary-fg;
+
+    &--primary { background: $gradient-primary; }
+    &--warm    { background: $gradient-warm; }
+    &--accent  { background: $gradient-accent; }
+  }
+
+  &:hover &__icon { transform: scale(1.1); }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: $fw-semi;
+    margin-bottom: 0.75rem;
+  }
+
+  &__desc {
+    font-size: 0.875rem;
+    color: $clr-muted;
+    line-height: 1.7;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: $gradient-primary;
+    opacity: 0;
+    transition: opacity $transition-slow;
+    pointer-events: none;
+  }
+  &:hover::after { opacity: 0.03; }
+}

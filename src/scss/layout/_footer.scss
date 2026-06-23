@@ -1,0 +1,38 @@
+.footer {
+  border-top: 1px solid $clr-border;
+  padding: 3rem 0;
+
+  &__container {
+    @include container;
+    @include flex(space-between, center, 1rem);
+    flex-wrap: wrap;
+
+    @include media-max(md) {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+  }
+
+  &__logo {
+    font-size: 1.25rem;
+    font-weight: $fw-bold;
+    @extend .text-gradient-primary;
+  }
+  &__logo-dot { color: $clr-accent; -webkit-text-fill-color: $clr-accent; }
+
+  &__links {
+    @include flex(center, center, 1.5rem);
+    a {
+      font-size: 0.875rem;
+      color: $clr-muted;
+      transition: color $transition-fast;
+      &:hover { color: $clr-foreground; }
+    }
+  }
+
+  &__copy {
+    font-size: 0.875rem;
+    color: $clr-muted;
+  }
+}

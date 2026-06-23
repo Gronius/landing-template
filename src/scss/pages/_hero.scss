@@ -1,0 +1,107 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  @include flex(center, center);
+  overflow: hidden;
+  padding: 0 $container-pad;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    animation: pulse 4s ease-in-out infinite;
+
+    &--1 { top: 25%; left: 25%; width: 500px; height: 500px; background: rgba($clr-primary, 0.2); }
+    &--2 { bottom: 25%; right: 25%; width: 400px; height: 400px; background: rgba($clr-secondary, 0.2); animation-delay: 1s; }
+    &--3 { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; height: 300px; background: rgba($clr-accent, 0.1); filter: blur(80px); animation-delay: 2s; }
+  }
+
+  &__grid-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image:
+      linear-gradient(hsl(0, 0%, 100%) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0, 0%, 100%) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: $radius-full;
+    border: 1px solid $clr-border;
+    background: rgba($clr-bg-card, 0.5);
+    backdrop-filter: blur(8px);
+    font-size: 0.875rem;
+    color: $clr-muted;
+    margin-bottom: 2rem;
+  }
+
+  &__badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $clr-accent;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  &__title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: $fw-bold;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  &__desc {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: $clr-muted;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  &__actions {
+    @include flex(center, center, 1rem);
+    flex-wrap: wrap;
+  }
+
+  &__stats {
+    margin-top: 5rem;
+    @include grid(3, 2rem);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__stat { text-align: center; }
+
+  &__stat-value {
+    display: block;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: $fw-bold;
+  }
+
+  &__stat-label {
+    font-size: 0.875rem;
+    color: $clr-muted;
+    margin-top: 0.25rem;
+  }
+}

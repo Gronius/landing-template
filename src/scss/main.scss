@@ -1,0 +1,25 @@
+// ===== BASE =====
+@import 'base/variables';
+
+// ===== UTILITIES (потрібні до компонентів для міксинів) =====
+@import 'utilities/mixins';
+@import 'utilities/animations';
+
+// ===== RESET =====
+@import 'base/reset';
+@import 'base/typography';
+
+// ===== COMPONENTS =====
+@import 'components/buttons';
+@import 'components/inputs';
+
+// ===== LAYOUT =====
+@import 'layout/header';
+@import 'layout/footer';
+
+// ===== PAGES =====
+@import 'pages/hero';
+@import 'pages/services';
+@import 'pages/portfolio';
+@import 'pages/process';
+@import 'pages/contact';

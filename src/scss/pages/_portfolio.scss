@@ -1,0 +1,67 @@
+.portfolio {
+  padding: 6rem 0;
+  &__container { @include container; }
+
+  &__grid {
+    @include grid(1, 1.5rem);
+    @include media(md) { grid-template-columns: repeat(2, 1fr); }
+  }
+}
+
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius-xl;
+  cursor: pointer;
+
+  &__img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+  }
+
+  &:hover &__img img { transform: scale(1.1); }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity $transition-slow;
+
+    &--primary   { background: linear-gradient(to top, rgba($clr-primary, 0.85), rgba($clr-secondary, 0.85)); }
+    &--accent    { background: linear-gradient(to top, rgba($clr-accent, 0.85), rgba($clr-primary, 0.85)); }
+    &--secondary { background: linear-gradient(to top, rgba($clr-secondary, 0.85), rgba($clr-accent, 0.85)); }
+  }
+
+  &:hover &__overlay { opacity: 1; }
+
+  &__cat {
+    font-size: 0.75rem;
+    font-weight: $fw-medium;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba($clr-primary-fg, 0.8);
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: $fw-bold;
+    color: $clr-primary-fg;
+    margin-top: 0.25rem;
+    @include flex(flex-start, center, 0.5rem);
+    transform: translateY(1rem);
+    transition: transform $transition-slow;
+  }
+
+  &:hover &__title { transform: translateY(0); }
+}
